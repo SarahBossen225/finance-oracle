@@ -10,6 +10,7 @@ export default function FinanceOracleData() {
   
   const [financialData, setFinancialData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [newData, setNewData] = useState({
     asset: "",
     price: "",
@@ -109,7 +110,9 @@ export default function FinanceOracleData() {
       });
       
       // Reload data
-      window.location.reload();
+      if (typeof window !== 'undefined') {
+        window.location.reload();
+      }
     } catch (error) {
       console.error("Error submitting data:", error);
       alert("Failed to submit financial data: " + (error instanceof Error ? error.message : "Unknown error"));

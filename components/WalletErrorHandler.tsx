@@ -4,6 +4,9 @@ import { useEffect } from "react";
 
 export default function WalletErrorHandler() {
   useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined') return;
+
     // Handle wallet extension conflicts gracefully
     const handleWalletError = (event: ErrorEvent) => {
       if (event.message?.includes("Cannot redefine property: ethereum")) {

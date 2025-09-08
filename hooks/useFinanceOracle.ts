@@ -17,6 +17,22 @@ import {
   handleContractError
 } from '../lib/contract';
 
+// Financial data interface
+export interface FinancialData {
+  id: number;
+  asset: string;
+  price: number;
+  volume: number;
+  marketCap: number;
+  high24h: number;
+  low24h: number;
+  change24h: number;
+  volatility: number;
+  isActive: boolean;
+  creationTime: number;
+  lastUpdated: number;
+}
+
 // Public market data (unencrypted)
 export interface PublicMarketData {
   id: number;
