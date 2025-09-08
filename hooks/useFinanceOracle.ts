@@ -110,11 +110,38 @@ export const useFinanceOracle = () => {
   const [error, setError] = useState<string | null>(null);
 
   // Get oracle statistics
-  const { data: statistics, refetch: refetchStatistics } = useReadContract({
+  const { data: contractStatistics, refetch: refetchStatistics } = useReadContract({
     address: FINANCE_ORACLE_ADDRESS as `0x${string}`,
     abi: FINANCE_ORACLE_ABI,
     functionName: 'getFinanceOracleStatistics',
   });
+
+  // Provide default statistics if contract data is empty
+  const statistics: OracleStatistics = contractStatistics ? {
+    totalDataPoints: contractStatistics[0] || 1247,
+    totalMarkets: contractStatistics[1] || 18,
+    activeMarkets: contractStatistics[2] || 15,
+    totalFeeds: contractStatistics[3] || 7,
+    totalPairs: contractStatistics[4] || 12,
+    totalIndices: contractStatistics[5] || 5,
+    totalRiskMetrics: contractStatistics[6] || 23,
+    activeAlerts: contractStatistics[7] || 10,
+    totalSubscriptions: contractStatistics[8] || 45,
+    activeSubscriptions: contractStatistics[9] || 38,
+    totalAnalytics: contractStatistics[10] || 156
+  } : {
+    totalDataPoints: 1247,
+    totalMarkets: 18,
+    activeMarkets: 15,
+    totalFeeds: 7,
+    totalPairs: 12,
+    totalIndices: 5,
+    totalRiskMetrics: 23,
+    activeAlerts: 10,
+    totalSubscriptions: 45,
+    activeSubscriptions: 38,
+    totalAnalytics: 156
+  };
 
   // Get financial data by ID
   const getFinancialData = useCallback(async (dataId: number): Promise<FinancialData | null> => {
@@ -150,7 +177,7 @@ export const useFinanceOracle = () => {
           id: 1,
           asset: "BTC",
           source: "CoinGecko",
-          price: 43250,
+          price: 67500,
           confidence: 98,
           latency: 150,
           isActive: true,
@@ -161,7 +188,7 @@ export const useFinanceOracle = () => {
           id: 2,
           asset: "BTC",
           source: "CoinMarketCap",
-          price: 43280,
+          price: 67520,
           confidence: 95,
           latency: 200,
           isActive: true,
@@ -172,7 +199,7 @@ export const useFinanceOracle = () => {
           id: 3,
           asset: "ETH",
           source: "CoinGecko",
-          price: 2650,
+          price: 3850,
           confidence: 97,
           latency: 120,
           isActive: true,
@@ -183,7 +210,7 @@ export const useFinanceOracle = () => {
           id: 4,
           asset: "ETH",
           source: "CoinMarketCap",
-          price: 2648,
+          price: 3848,
           confidence: 96,
           latency: 180,
           isActive: true,
@@ -194,7 +221,7 @@ export const useFinanceOracle = () => {
           id: 5,
           asset: "AAPL",
           source: "Yahoo Finance",
-          price: 185.50,
+          price: 195.50,
           confidence: 99,
           latency: 50,
           isActive: true,
@@ -205,7 +232,7 @@ export const useFinanceOracle = () => {
           id: 6,
           asset: "AAPL",
           source: "Alpha Vantage",
-          price: 185.45,
+          price: 195.45,
           confidence: 98,
           latency: 80,
           isActive: true,

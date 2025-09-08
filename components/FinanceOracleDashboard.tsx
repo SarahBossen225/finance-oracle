@@ -125,9 +125,9 @@ export default function FinanceOracleDashboard() {
           <h3 className="text-xl font-semibold text-white mb-4">📈 Top Performing Assets</h3>
           <div className="space-y-3">
             {[
-              { asset: "BTC", price: "$43,250", change: "+2.3%", volume: "2.4B" },
-              { asset: "ETH", price: "$2,650", change: "+1.8%", volume: "1.8B" },
-              { asset: "AAPL", price: "$185.50", change: "+0.8%", volume: "45.2M" }
+              { asset: "BTC", price: "$67,500", change: "+2.3%", volume: "2.4B" },
+              { asset: "ETH", price: "$3,850", change: "+1.8%", volume: "1.8B" },
+              { asset: "AAPL", price: "$195.50", change: "+0.8%", volume: "45.2M" }
             ].map((asset, index) => (
               <div key={index} className="flex justify-between items-center p-3 bg-slate-600/20 rounded-lg">
                 <div>
