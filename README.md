@@ -2,6 +2,37 @@
 
 Finance Oracle is a privacy-preserving financial data and market analytics platform built with FHE (Fully Homomorphic Encryption) technology. It enables secure financial data collection, processing, and distribution while maintaining data privacy and market integrity.
 
+## 🎥 Demo Video
+
+Watch the Finance Oracle platform in action:
+
+[![Finance Oracle Demo](https://img.shields.io/badge/📹%20Watch%20Demo-Video%20Demo-blue?style=for-the-badge)](./finance-oracle-demo-20mb.mp4)
+
+> **Note**: The demo video shows the complete Finance Oracle platform including:
+> - Real-time financial data dashboard
+> - FHE-encrypted data processing
+> - Market analytics and price feeds
+> - Privacy controls and data management
+> - Wallet integration and blockchain interaction
+
+### 📁 Video Files
+- **Original**: `finance-oracle.mov` (184MB) - Full quality demo
+- **Compressed**: `finance-oracle-demo-20mb.mp4` (14MB) - GitHub-ready version with good quality
+- **Compression Guide**: See [VIDEO_COMPRESSION.md](./VIDEO_COMPRESSION.md) for details
+
+### 🛠️ Quick Video Compression
+```bash
+# Make script executable (if not already)
+chmod +x scripts/compress-video.sh
+
+# Run compression script
+./scripts/compress-video.sh
+```
+
+### 🚀 Live Demo
+- **Vercel Deployment**: [finance-oracle.vercel.app](https://finance-oracle.vercel.app)
+- **GitHub Repository**: [SarahBossen225/finance-oracle](https://github.com/SarahBossen225/finance-oracle)
+
 ## Features
 
 ### 💰 Financial Data Collection

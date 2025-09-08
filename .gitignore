@@ -94,3 +94,17 @@ jspm_packages/
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+
+# Large video files (use compression tools instead)
+*.mov
+*.mp4
+*.avi
+*.mkv
+
+# Large video files (use compression tools instead)
+*.mov
+*.mp4
+*.avi
+*.mkv
+*.wmv
+*.flv
