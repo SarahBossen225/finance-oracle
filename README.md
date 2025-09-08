@@ -15,11 +15,6 @@ Watch the Finance Oracle platform in action:
 > - Privacy controls and data management
 > - Wallet integration and blockchain interaction
 
-### 📁 Video Files
-- **Original**: `finance-oracle.mov` (184MB) - Full quality demo
-- **Compressed**: `finance-oracle-demo-20mb.mp4` (14MB) - GitHub-ready version with good quality
-- **Compression Guide**: See [VIDEO_COMPRESSION.md](./VIDEO_COMPRESSION.md) for details
-
 ### 🛠️ Quick Video Compression
 ```bash
 # Make script executable (if not already)
