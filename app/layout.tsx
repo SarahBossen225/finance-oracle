@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import WalletErrorHandler from "../components/WalletErrorHandler";
@@ -11,8 +10,6 @@ if (typeof global === 'undefined') {
 if (typeof self === 'undefined') {
   (window as any).self = globalThis;
 }
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Finance Oracle - Secure Financial Data Platform",
@@ -29,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="font-sans">
         <WalletErrorHandler />
         <Providers>
           {children}

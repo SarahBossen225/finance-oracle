@@ -26,7 +26,7 @@ export default function DataPrivacyDashboard() {
     { type: "Trading Strategies", description: "Your proprietary algorithms", encrypted: true }
   ];
 
-  const handlePrivacyToggle = (key: string) => {
+  const handlePrivacyToggle = (key: keyof typeof userPreferences) => {
     setUserPreferences(prev => ({
       ...prev,
       [key]: !prev[key]
