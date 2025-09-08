@@ -1,0 +1,609 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@rainbow-me/rainbowkit/styles.css';
+
+@layer components {
+  .finance-gradient {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 25%, #b45309 50%, #92400e 75%, #78350f 100%);
+  }
+  
+  .finance-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.1);
+  }
+  
+  .finance-animation {
+    animation: financePulse 2s ease-in-out infinite;
+  }
+  
+  .finance-glow {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+  }
+  
+  .price-gradient {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  }
+  
+  .market-gradient {
+    background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%);
+  }
+}
+
+@keyframes financePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.95;
+  }
+}
+
+@keyframes priceUpdate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.price-update {
+  animation: priceUpdate 1s ease-in-out infinite;
+}
+
+.golden-text {
+  background: linear-gradient(135deg, #f59e0b, #d97706, #b45309);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.finance-button {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  transition: all 0.3s ease;
+}
+
+.finance-button:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+}
+
+.price-button {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  transition: all 0.3s ease;
+}
+
+.price-button:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3);
+}
+
+.finance-oracle-gradient {
+  background: linear-gradient(135deg, #059669 0%, #047857 25%, #065f46 50%, #064e3b 75%, #022c22 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.finance-oracle-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(5, 150, 105, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(4, 120, 87, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(6, 95, 70, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 60% 40%, rgba(6, 78, 59, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 30% 70%, rgba(2, 44, 34, 0.3) 0%, transparent 50%);
+  /* animation: financeOracleFloat 30s ease-in-out infinite; */
+}
+
+@keyframes financeOracleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-1px); }
+}
+
+.finance-oracle-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.finance-oracle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.finance-oracle-flow {
+  /* animation: financeOracleFlow 5s ease-in-out infinite; */
+}
+
+@keyframes financeOracleFlow {
+  0%, 100% { 
+    transform: translateX(0) scale(1);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateX(3px) scale(1.02);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-network {
+  position: relative;
+}
+
+.finance-oracle-network::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(5, 150, 105, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(4, 120, 87, 0.1) 0%, transparent 50%);
+  /* animation: financeOraclePulse 6s ease-in-out infinite; */
+}
+
+@keyframes financeOraclePulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.finance-oracle-grid {
+  background-image: 
+    linear-gradient(rgba(5, 150, 105, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(4, 120, 87, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.finance-oracle-glow {
+  box-shadow: 
+    0 0 20px rgba(5, 150, 105, 0.3),
+    0 0 40px rgba(4, 120, 87, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.finance-oracle-dots {
+  position: relative;
+}
+
+.finance-oracle-dots::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: rgba(5, 150, 105, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: financeOracleFloat 2s ease-in-out infinite;
+}
+
+@keyframes financeOracleFloat {
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-star {
+  animation: financeOracleStar 1s ease-in-out infinite;
+}
+
+@keyframes financeOracleStar {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-bounce {
+  /* animation: financeOracleBounce 1s ease-in-out infinite; */
+}
+
+@keyframes financeOracleBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1px); }
+}
+
+.finance-oracle-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.finance-oracle-wave::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(5, 150, 105, 0.2), transparent);
+  /* animation: financeOracleWave 3s ease-in-out infinite; */
+}
+
+@keyframes financeOracleWave {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.finance-oracle-sparkle {
+  position: relative;
+}
+
+.finance-oracle-sparkle::after {
+  content: '💰';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 16px;
+  /* animation: financeOracleSparkle 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleSparkle {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-connection {
+  position: relative;
+}
+
+.finance-oracle-connection::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(5, 150, 105, 0.5), transparent);
+  transform: translateY(-50%);
+  /* animation: financeOracleConnection 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleConnection {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.finance-oracle-profile {
+  /* animation: financeOracleProfile 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleProfile {
+  0%, 100% { 
+    transform: translateX(0);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateX(5px);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-session {
+  position: relative;
+}
+
+.finance-oracle-session::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, rgba(5, 150, 105, 0.1) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(4, 120, 87, 0.1) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(6, 95, 70, 0.1) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(6, 78, 59, 0.1) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  /* animation: financeOracleSession 4s ease-in-out infinite; */
+}
+
+@keyframes financeOracleSession {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.finance-oracle-heartbeat {
+  /* animation: financeOracleHeartbeat 1.5s ease-in-out infinite; */
+}
+
+@keyframes financeOracleHeartbeat {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  25% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  75% { 
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+}
+
+.finance-oracle-pulse {
+  position: absolute;
+  background: radial-gradient(circle, #059669 0%, rgba(5, 150, 105, 0) 70%);
+  border-radius: 50%;
+  opacity: 0;
+  animation: financeOraclePulseFade 10s infinite ease-out;
+  pointer-events: none;
+}
+
+.finance-oracle-pulse:nth-child(1) {
+  width: 80px; height: 80px;
+  top: 10%; left: 20%;
+  animation-delay: 0s;
+}
+
+.finance-oracle-pulse:nth-child(2) {
+  width: 120px; height: 120px;
+  top: 70%; left: 80%;
+  animation-delay: 3s;
+}
+
+.finance-oracle-pulse:nth-child(3) {
+  width: 60px; height: 60px;
+  top: 40%; left: 50%;
+  animation-delay: 6s;
+}
+
+@keyframes financeOraclePulseFade {
+  0% { transform: scale(0.5); opacity: 0.5; }
+  50% { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(0.5); opacity: 0.5; }
+}
+
+.finance-oracle-market {
+  position: relative;
+}
+
+.finance-oracle-market::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, rgba(5, 150, 105, 0.1) 0%, transparent 50%),
+    linear-gradient(-45deg, rgba(4, 120, 87, 0.1) 0%, transparent 50%),
+    linear-gradient(90deg, rgba(6, 95, 70, 0.1) 0%, transparent 50%);
+  /* animation: financeOracleMarket 6s ease-in-out infinite; */
+}
+
+@keyframes financeOracleMarket {
+  0%, 100% { 
+    transform: translateX(-100%) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translateX(100%) rotate(180deg);
+    opacity: 0.6;
+  }
+}
+
+.finance-oracle-price {
+  /* animation: financeOraclePrice 2s ease-in-out infinite; */
+}
+
+@keyframes financeOraclePrice {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-trading {
+  /* animation: financeOracleTrading 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleTrading {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-alert {
+  /* animation: financeOracleAlert 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleAlert {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-analytics {
+  /* animation: financeOracleAnalytics 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleAnalytics {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-risk {
+  /* animation: financeOracleRisk 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleRisk {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-subscription {
+  /* animation: financeOracleSubscription 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleSubscription {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-volume {
+  /* animation: financeOracleVolume 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleVolume {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-volatility {
+  /* animation: financeOracleVolatility 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleVolatility {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-liquidity {
+  /* animation: financeOracleLiquidity 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleLiquidity {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-spread {
+  /* animation: financeOracleSpread 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleSpread {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-index {
+  /* animation: financeOracleIndex 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleIndex {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+.finance-oracle-feed {
+  /* animation: financeOracleFeed 2s ease-in-out infinite; */
+}
+
+@keyframes financeOracleFeed {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,571 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_oracle",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "dataId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "submitter",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "asset",
+          "type": "bytes32"
+        }
+      ],
+      "name": "FinancialDataSubmitted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "marketId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "marketName",
+          "type": "bytes32"
+        }
+      ],
+      "name": "MarketDataUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "feedId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "asset",
+          "type": "bytes32"
+        }
+      ],
+      "name": "PriceFeedUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "alertId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "asset",
+          "type": "bytes32"
+        }
+      ],
+      "name": "FinancialAlertIssued",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_encryptedAsset",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_encryptedTimestamp",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_encryptedPrice",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_encryptedVolume",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_encryptedMarketCap",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_encryptedHigh24h",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_encryptedLow24h",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_encryptedChange24h",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_encryptedVolatility",
+          "type": "uint32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_encryptedDataHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "submitFinancialData",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_encryptedAsset",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_encryptedSource",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_encryptedPrice",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_encryptedConfidence",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_encryptedLatency",
+          "type": "uint32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_encryptedFeedHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "updatePriceFeed",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_encryptedAsset",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_encryptedAlertType",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_encryptedAlertLevel",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_encryptedAlertMessage",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_encryptedThreshold",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_encryptedCurrentValue",
+          "type": "uint32"
+        }
+      ],
+      "name": "issueFinancialAlert",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_dataId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getFinancialData",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "encryptedAsset",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "encryptedTimestamp",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "price",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "volume",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "marketCap",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "high24h",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "low24h",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "change24h",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "volatility",
+          "type": "uint32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "encryptedDataHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bool",
+          "name": "isActive",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "creationTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "lastUpdated",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_feedId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getPriceFeed",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "encryptedAsset",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "encryptedSource",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "price",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "confidence",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "latency",
+          "type": "uint32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "encryptedFeedHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bool",
+          "name": "isActive",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "creationTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "lastUpdated",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_alertId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getFinancialAlert",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "encryptedAsset",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "encryptedAlertType",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "encryptedAlertLevel",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "encryptedAlertMessage",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "threshold",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "currentValue",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "alertStatus",
+          "type": "uint32"
+        },
+        {
+          "internalType": "bool",
+          "name": "isActive",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "creationTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "lastUpdated",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFinanceOracleStatistics",
+      "outputs": [
+        {
+          "internalType": "uint32",
+          "name": "totalDataPoints",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "totalMarkets",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "activeMarkets",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "totalFeeds",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "totalPairs",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "totalIndices",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "totalRiskMetrics",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "activeAlerts",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "totalSubscriptions",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "activeSubscriptions",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "totalAnalytics",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_asset",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getAssetData",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_asset",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getAssetFeeds",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_asset",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getAssetAlerts",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+}
