@@ -157,7 +157,9 @@ export default function DataPrivacyDashboard() {
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {Object.entries(userPreferences).map(([key, value]) => (
+          {Object.entries(userPreferences).map(([key, value]) => {
+            const typedKey = key as keyof typeof userPreferences;
+            return (
             <div key={key} className="flex items-center justify-between p-4 bg-green-900/20 rounded-lg">
               <div>
                 <div className="text-white font-medium">
@@ -172,7 +174,7 @@ export default function DataPrivacyDashboard() {
                 </div>
               </div>
               <button
-                onClick={() => handlePrivacyToggle(key)}
+                onClick={() => handlePrivacyToggle(typedKey)}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
                   value ? 'bg-green-600' : 'bg-gray-600'
                 }`}
@@ -184,7 +186,8 @@ export default function DataPrivacyDashboard() {
                 />
               </button>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
